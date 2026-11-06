@@ -1,5 +1,9 @@
 # Mobile View
 
+## 3.0.0
+- Responsive mobile device dashboard, filters, groups and navigation.
+- Integrate selection and group actions with MeshCentral permissions.
+
 ## 2.0.1
 - Fix device list rendering on narrow screens.
 
