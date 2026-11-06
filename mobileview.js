@@ -208,6 +208,22 @@ module.exports = function () {
         }
         function rerender() { dash.last=''; renderDash(); }
         function openDevice(id,panel) { hideSheet(); if(typeof gotoDevice==='function') gotoDevice(id,panel||10); sync(); }
+        function openDesktop(id) {
+            hideSheet();
+            if (typeof gotoDevice !== 'function') return;
+            gotoDevice(id,10);
+            if (typeof xxcurrentView === 'undefined' || xxcurrentView !== 10 || typeof currentNode === 'undefined' || !currentNode || currentNode._id !== id) return;
+            // Let MeshCentral establish the device and its rights before using its own tab.
+            var tab=target('MainDevDesktop');
+            if (tab && getComputedStyle(tab).display !== 'none') {
+                tab.dispatchEvent(new MouseEvent('mouseup',{bubbles:true}));
+                sync();
+            } else if (typeof xxcurrentView !== 'undefined' && xxcurrentView === 10) {
+                if (typeof go === 'function') go(1);
+                dash.last=''; renderDash();
+                showSheet('<h2>Рабочий стол недоступен</h2><p>Для этого устройства нет доступа к рабочему столу или такой способ подключения не поддерживается.</p>');
+            }
+        }
         function nativeSelection() {
             if (typeof updateDevices === 'function') updateDevices();
             if (typeof onDevicesScrollEx === 'function') onDevicesScrollEx();
@@ -220,7 +236,7 @@ module.exports = function () {
             else if(b.dataset.filter){dash.filter=b.dataset.filter;rerender();}
             else if(b.id==='mv-select'){dash.selection=!dash.selection;if(!dash.selection)dash.selected={};rerender();}
             else if(b.dataset.groupToggle){dash.collapsed[b.dataset.groupToggle]=!dash.collapsed[b.dataset.groupToggle];rerender();}
-            else if(b.dataset.device){if(dash.selection){dash.selected[b.dataset.device]=!dash.selected[b.dataset.device];if(!dash.selected[b.dataset.device])delete dash.selected[b.dataset.device];rerender();}else openDevice(b.dataset.device,10);}
+            else if(b.dataset.device){if(dash.selection){dash.selected[b.dataset.device]=!dash.selected[b.dataset.device];if(!dash.selected[b.dataset.device])delete dash.selected[b.dataset.device];rerender();}else openDesktop(b.dataset.device);}
             else if(b.dataset.deviceMenu){var n=nodeList().find(function(x){return x._id===b.dataset.deviceMenu;});if(n)showSheet('<h2>'+esc(n.name)+'</h2><button data-open="'+esc(n._id)+'" data-panel="11">Рабочий стол</button><button data-open="'+esc(n._id)+'" data-panel="12">Терминал</button><button data-open="'+esc(n._id)+'" data-panel="10">Сведения</button>');}
             else if(b.dataset.open){openDevice(b.dataset.open,Number(b.dataset.panel));}
             else if(b.dataset.groupMenu){var id=b.dataset.groupMenu, mesh=typeof meshes!=='undefined'&&meshes[id];var mayAdd=mesh && mesh.mtype===2 && typeof GetMeshRights==='function' && (GetMeshRights(mesh)&4) && typeof addAgentToMesh==='function';var actions=mayAdd?'<button data-group-action="agent" data-group-id="'+esc(id)+'">Добавить агента</button>':'';if(mayAdd && typeof inviteAgentToMesh==='function' && typeof features!=='undefined' && !(features&2))actions+='<button data-group-action="invite" data-group-id="'+esc(id)+'">Пригласить</button>';showSheet('<h2>'+esc((mesh&&mesh.name)||'Группа')+'</h2>'+actions+'<button data-manage="'+esc(id)+'">Управление группой</button>');}

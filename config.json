@@ -3,7 +3,7 @@
   "shortName": "mobileview",
   "shortDescription": "Mobile-friendly desktop and terminal controls",
   "description": "Optional mobile layout for MeshCentral remote desktop and terminal.",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": "Sokol549",
   "license": "MIT",
   "meshCentralCompat": ">=1.0.0",

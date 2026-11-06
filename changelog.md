@@ -1,5 +1,8 @@
 # Mobile View
 
+## 3.0.1
+- Open the remote desktop from a mobile device card when permitted.
+
 ## 3.0.0
 - Responsive mobile device dashboard, filters, groups and navigation.
 - Integrate selection and group actions with MeshCentral permissions.
