@@ -1,3 +1,8 @@
+# Mobile View
+
+## 2.0.0
+- Mobile session workspace with connection, navigation, keyboard and additional actions.
+
 # ??????? ?????????
 
 ## 1.1.0
