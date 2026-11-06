@@ -3,7 +3,7 @@
   "shortName": "mobileview",
   "shortDescription": "Mobile-friendly desktop and terminal controls",
   "description": "Optional mobile layout for MeshCentral remote desktop and terminal.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Sokol549",
   "license": "MIT",
   "meshCentralCompat": ">=1.0.0",
@@ -12,5 +12,8 @@
   "configUrl": "https://raw.githubusercontent.com/Sokol549/meshcentral-mobileview/master/config.json",
   "downloadUrl": "https://github.com/Sokol549/meshcentral-mobileview/archive/refs/heads/master.zip",
   "changelogUrl": "https://raw.githubusercontent.com/Sokol549/meshcentral-mobileview/master/changelog.md",
-  "repository": { "type": "git", "url": "https://github.com/Sokol549/meshcentral-mobileview.git" }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sokol549/meshcentral-mobileview.git"
+  }
 }
