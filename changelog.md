@@ -1,5 +1,8 @@
 # Mobile View
 
+## 2.0.1
+- Fix device list rendering on narrow screens.
+
 ## 2.0.0
 - Mobile session workspace with connection, navigation, keyboard and additional actions.
 

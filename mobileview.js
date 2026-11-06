@@ -22,6 +22,7 @@ module.exports = function () {
             'body.mobileview-active .topbar_td{height:44px!important;min-width:78px;padding:0 10px!important;box-sizing:border-box}',
             'body.mobileview-active #column_l{width:100%!important;min-width:0!important;max-width:100%!important;padding:0 8px 72px!important;box-sizing:border-box;overflow-x:hidden!important}',
             'body.mobileview-active #p1,body.mobileview-active #p10{max-width:100%;overflow-x:auto}',
+            'body.mobileview-active #xdevices{position:relative}',
             'body.mobileview-active #p1 input,body.mobileview-active #p1 select{min-height:40px;font-size:16px}',
             '#mobileview-toggle{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:950;min-height:46px;padding:0 17px;border:0;border-radius:24px;background:#1768db;color:#fff;font:600 14px system-ui,sans-serif;box-shadow:0 4px 18px #0005;cursor:pointer}',
             'body.mobileview-active #mobileview-toggle{background:#173251}',
